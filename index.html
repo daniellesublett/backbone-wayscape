@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" data-framework="backbonejs">
+	<head>
+		<meta charset="utf-8">
+		<title>Backbone.js • TodoMVC</title>
+		<link rel="stylesheet" href="node_modules/todomvc-common/base.css">
+		<link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
+		<link rel="stylesheet" src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css">
+		<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+	</head>
+	<body>
+		<script type='template' id='map-template'>
+			<div id="map"></div>
+		</script>
+		<div id="map-wrapper">
+			<div id="master-wrapper">
+		<section class="todoapp">
+			<header class="header">
+				<h1>WAYSCAPE</h1>
+				<input class="new-todo" placeholder="Contribute a scene to this location." autofocus>
+			</header>
+			<section class="main">
+				<input class="toggle-all" id="toggle-all" type="checkbox">
+				<label for="toggle-all">Archive All</label>
+				<ul class="todo-list"></ul>
+			</section>
+			<footer class="footer"></footer>
+		</section>
+		<footer class="info">
+			<p>Double click to edit your scene</p>
+			<p></p>
+			<p></p>
+		</footer>
+		<script type="text/template" id="item-template">
+			<div class="view">
+				<input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
+				<label><%- title %></label>
+				<p class="archive">Archive Scene<p>
+				<button class="destroy"></button>
+			</div>
+			<input class="edit" value="<%- title %>">
+		</script>
+		<script type="text/template" id="stats-template">
+			<span class="todo-count"><strong><%= remaining %></strong><strong> active</strong> <%= remaining === 1 ? 'scene' : 'scenes' %> at this location</span>
+			<ul class="filters">
+				<li>
+					<a class="selected" href="#/">View all scenes at this location</a>
+				</li>
+				<li>
+					<a href="#/active">Active Scenes</a>
+				</li>
+				<li>
+					<a href="#/completed">Archives</a>
+				</li>
+			</ul>
+			<% if (completed) { %>
+			<button class="clear-completed">Clear Archives</button>
+			<% } %>
+
+		</script>
+		<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.2/backbone-min.js"></script>
+		<script src="node_modules/todomvc-common/base.js"></script>
+		<script src="node_modules/jquery/dist/jquery.js"></script>
+		<script src="node_modules/underscore/underscore.js"></script>
+		<script src="node_modules/backbone/backbone.js"></script>
+		<script src="node_modules/backbone.localstorage/backbone.localStorage.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/models/todo.js"></script>
+		<script src="js/collections/todos.js"></script>
+		<script src="js/views/todo-view.js"></script>
+		<script src="js/views/app-view.js"></script>
+		<script src="js/routers/router.js"></script>
+		
+		</div>
+	</div>
+	</body>
+</html>
